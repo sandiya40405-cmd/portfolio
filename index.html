@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> PORTFOLIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --primary: #6a4de6;
+      --secondary: #f4f3ff;
+      --dark: #2b2b2b;
+      --gray: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+    
+      background: #fff;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 60px;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 38px;
+      color: var(--primary);
+    }
+
+    .hero-text h3 {
+      margin: 10px 0;
+      color: var(--gray);
+    }
+
+    .hero-text p {
+      margin-top: 15px;
+    }
+
+    .hero img {
+      width: 300px;
+      border-radius: 16px;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 60px;
+    }
+
+    section h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .skill {
+      background: var(--secondary);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* ---------- EDUCATION ---------- */
+    .education-box {
+      background: var(--secondary);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .project h3 {
+      color: var(--primary);
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      background: var(--secondary);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #fafafa;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+    /* ===== DARK MODE VARIABLES ===== */
+body.dark {
+  --primary: #9b8cff;
+  --secondary: #1f1f2e;
+  --dark: #f5f5f5;
+  --gray: #cfcfcf;
+  --border: #333;
+  background: #121212;
+  color: var(--dark);
+}
+
+/* Toggle Button */
+.dark-toggle {
+  background: none;
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--primary);
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-toggle:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark mode fixes */
+body.dark header,
+body.dark footer {
+  background: #1a1a1a;
+}
+/* ===== GRADIENT ACCENTS ===== */
+header {
+  background: linear-gradient(to right, #ffffff, #f4f3ff);
+}
+
+body.dark header {
+  background: linear-gradient(to right, #121212, #1f1f2e);
+}
+
+/* ===== HERO DESIGN ===== */
+.hero {
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary), #ff7ad9);
+  border-radius: 10px;
+}
+
+/* ===== SECTION CARD LOOK ===== */
+section {
+  position: relative;
+}
+
+section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  background: var(--secondary);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+/* ===== SKILLS – UNIQUE HOVER ===== */
+.skill {
+  background: linear-gradient(145deg, #ffffff, var(--secondary));
+}
+
+.skill:hover {
+  background: linear-gradient(145deg, var(--primary), #8a7cff);
+  color: #fff;
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* ===== PROJECT CARDS ===== */
+.project {
+  background: #fff;
+  transition: all 0.35s ease;
+}
+
+.project:hover {
+  background: linear-gradient(160deg, #ffffff, var(--secondary));
+  box-shadow: 0 15px 30px rgba(106, 77, 230, 0.25);
+}
+
+/* Dark mode projects */
+body.dark .project {
+  background: #1f1f2e;
+}
+
+/* ===== EDUCATION BOX ===== */
+.education-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.education-box::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--primary), transparent);
+  opacity: 0.25;
+}
+
+/* ===== CONTACT CARD ===== */
+.contact {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.contact p {
+  padding: 4px 0;
+}
+
+/* ===== FOOTER STYLE ===== */
+footer {
+  background: linear-gradient(to right, #fafafa, #f4f3ff);
+}
+
+body.dark footer {
+  background: linear-gradient(to right, #121212, #1f1f2e);
+}
+
+/* ===== SMOOTHER TRANSITIONS ===== */
+section, .skill, .project, .contact {
+  transition: all 0.4s ease;
+}
+.hero-text h1 {
+  font-size: 38px;
+  color: var(--primary);
+}
+
+
+
+  </style>
+</head>
+<body>
+  <script>
+  /* Scroll Animation */
+  const reveals = document.querySelectorAll("section, header, footer");
+
+  const revealOnScroll = () => {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (top < windowHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  };
+
+  reveals.forEach(el => el.classList.add("reveal"));
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+  /* Dark Mode Toggle */
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+  }
+</script>
+
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Engineering Portfolio</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>S.Sandiya shree</h1>
+      <h3>Fresher | BE/computer science engineering</h3>
+      <p>
+        Motivated engineering graduate with strong fundamentals,
+        hands-on project experience, and a passion for learning new technologies.
+      </p>
+    </div>
+
+    <img src="profile image.jpg" alt="profile ">
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+       I am a computer engineering graduate with a keen interest in software development and emerging technologies. 
+      I have practical experience in programming, web development, and database management through academic projects.
+      I am seeking an entry-level role where I can apply my technical skills and grow as a software professional.
+      am highly motivated, detail-oriented, 
+      and eager to begin my professional journey by contributing to innovative engineering solutions.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="skill">C / C++</div><div class="skill">Python</div>
+      <div class="skill">Java</div>
+      <div class="skill">HTML & CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Data Structures</div>
+      <div class="skill">Problem Solving</div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-box">
+      <p><strong>Bachelor of Engineering / computer science engineering</strong></p>
+      <p>anand insitute of higher technology  Engineering College</p>
+      <p>2023 – 2027</p>
+      <p>CGPA: 7.8 / 10</p>
+      <p><strong>Higher Secondary (Class XII)</strong>
+<p>Ladys'sivaswami higher sec School </p>
+<p> 2022 – 2023</p>
+<p>Percentage: 75%</p>
+
+<p><strong>Secondary School (Class X)</strong></p>
+<p>SIET matriclation higher sec School </p>
+<p>2019 – 2020</p>
+<p>Percentage: 88%</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Academic Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Smart Attendance System</h3>
+        <p>
+          Developed a face recognition-based attendance system using Python
+          and OpenCV to automate attendance tracking.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>
+          Designed a responsive personal portfolio using HTML, CSS,
+          and basic JavaScript.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>IoT Home Automation</h3>
+        <p>
+          Built an IoT-based home automation system using Arduino
+          and sensors for remote control.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p><strong>Email:</strong> sandiya40405@gmail.com</p>
+      <p><strong>Phone:</strong> +91 9342689978</p>
+      <p><strong>LinkedIn:</strong>https://www.linkedin.com/in/sandiyashree-sandiyashree
+      -0a1ab2377?utm_source=share&utm_campaign=share_via&utm_
+      content=profile&utm_medium=android_app</p>
+      <p><strong>GitHub:</strong> github.com/yourusername</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Your Name | Engineering Fresher Portfolio
+  </footer>
+
+</body>
+</html>
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
